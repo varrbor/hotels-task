@@ -3,7 +3,7 @@ import { getCalculatedData } from '../helpers/getCalculatedData'
 import { useFetch } from '../hooks/useFetch'
 import ResultTable from '../components/ResultTable'
 
-const  App: React.FC = () => {
+const App: React.FC = () => {
   const { data, loading } = useFetch()
 
   const [roomsNumber, setRoomsNumber] = useState({

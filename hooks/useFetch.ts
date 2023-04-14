@@ -32,7 +32,7 @@ export const useFetch = () => {
   }, [])
 
   useEffect(() => {
-     handleFetch()
+    handleFetch()
   }, [handleFetch])
 
   return {

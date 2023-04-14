@@ -7,7 +7,7 @@
 // }
 
 export interface DataState {
-    loading: boolean;
-    data: [];
-    error: string | null;
+  loading: boolean
+  data: []
+  error: string | null
 }

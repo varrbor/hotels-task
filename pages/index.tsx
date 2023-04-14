@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { getCalculatedData } from '../helpers/getCalculatedData'
 import { useFetch } from '../hooks/useFetch'
+import ResultTable from '../components/ResultTable'
 
 function App() {
   const { data, loading } = useFetch()
@@ -66,19 +67,7 @@ function App() {
         </button>
       </div>
       {!loading && (
-        <div className="mt-5">
-          <div className="flex  justify-center mt-2">Result</div>
-          <div className="flex flex-col  items-center justify-center mt-2">
-            <div>
-              Usage Premium: {calculatedData.premium.occupied} (EUR
-              {calculatedData.premium.profit})
-            </div>
-            <div className=" mt-2">
-              Usage Economy: {calculatedData.econom.occupied} (EUR
-              {calculatedData.econom.profit})
-            </div>
-          </div>
-        </div>
+        <ResultTable data={calculatedData}  />
       )}
     </div>
   )

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { getCalculatedData } from '../helpers/getCalculatedData'
+import { useFetch } from '../hooks/useFetch'
 
 function App() {
-  const users = [23, 45, 155, 374, 22, 99, 100, 101, 115, 209]
+  const { data, loading } = useFetch()
+
   const [roomsNumber, setRoomsNumber] = useState({
     econom: 0,
     premium: 0,
@@ -20,7 +22,7 @@ function App() {
 
   const onClickHandler = () => {
     setCalculatedData(
-      getCalculatedData(roomsNumber.premium, roomsNumber.econom, users)
+      getCalculatedData(roomsNumber.premium, roomsNumber.econom, data)
     )
   }
 
@@ -63,19 +65,21 @@ function App() {
           Calculate
         </button>
       </div>
-      <div className="mt-5">
-        <div className="flex  justify-center mt-2">Result</div>
-        <div className="flex flex-col  items-center justify-center mt-2">
-          <div>
-            Usage Premium: {calculatedData.premium.occupied} (EUR
-            {calculatedData.premium.profit})
-          </div>
-          <div className=" mt-2">
-            Usage Economy: {calculatedData.econom.occupied} (EUR
-            {calculatedData.econom.profit})
+      {!loading && (
+        <div className="mt-5">
+          <div className="flex  justify-center mt-2">Result</div>
+          <div className="flex flex-col  items-center justify-center mt-2">
+            <div>
+              Usage Premium: {calculatedData.premium.occupied} (EUR
+              {calculatedData.premium.profit})
+            </div>
+            <div className=" mt-2">
+              Usage Economy: {calculatedData.econom.occupied} (EUR
+              {calculatedData.econom.profit})
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

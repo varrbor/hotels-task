@@ -3,7 +3,7 @@ import { getCalculatedData } from '../helpers/getCalculatedData'
 import { useFetch } from '../hooks/useFetch'
 import ResultTable from '../components/ResultTable'
 
-function App() {
+const  App: React.FC = () => {
   const { data, loading } = useFetch()
 
   const [roomsNumber, setRoomsNumber] = useState({
@@ -66,9 +66,7 @@ function App() {
           Calculate
         </button>
       </div>
-      {!loading && (
-        <ResultTable data={calculatedData}  />
-      )}
+      {!loading && <ResultTable data={calculatedData} />}
     </div>
   )
 }

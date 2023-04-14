@@ -22,7 +22,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "helpers/getCalculatedData.js"
-, "cypress/e2e/app.cy.js"  ],
+    "helpers/getCalculatedData.js",
+    "cypress/e2e/app.cy.js"
+  ],
   "exclude": ["node_modules"]
 }

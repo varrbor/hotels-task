@@ -7,8 +7,8 @@ const App: React.FC = () => {
   const { data, loading } = useFetch()
 
   interface IRooms {
-    econom: number;
-    premium: number;
+    econom: number
+    premium: number
   }
 
   const [roomsNumber, setRoomsNumber] = useState<IRooms>({

@@ -20,11 +20,17 @@ const ResultTable: React.FC<props> = (props) => {
         <div className="flex justify-center mt-2">Result</div>
         <div className="flex flex-col  items-center justify-center mt-2">
           <div>
-            Usage Premium: <span className="res-premium-occupied">{data.premium.occupied}</span> (EUR {''}
+            Usage Premium:{' '}
+            <span className="res-premium-occupied">
+              {data.premium.occupied}
+            </span>{' '}
+            (EUR {''}
             <span className="res-premium-profit">{data.premium.profit}</span>)
           </div>
           <div className="mt-2">
-            Usage Economy: <span className="res-econom-occupied">{data.econom.occupied}</span> (EUR {''}
+            Usage Economy:{' '}
+            <span className="res-econom-occupied">{data.econom.occupied}</span>{' '}
+            (EUR {''}
             <span className="res-econom-profit">{data.econom.profit}</span>)
           </div>
         </div>

@@ -6,7 +6,12 @@ import ResultTable from '../components/ResultTable'
 const App: React.FC = () => {
   const { data, loading } = useFetch()
 
-  const [roomsNumber, setRoomsNumber] = useState({
+  interface IRooms {
+    econom: number;
+    premium: number;
+  }
+
+  const [roomsNumber, setRoomsNumber] = useState<IRooms>({
     econom: 0,
     premium: 0,
   })
@@ -32,7 +37,7 @@ const App: React.FC = () => {
 
     setRoomsNumber({
       ...roomsNumber,
-      [e.target.name]: Number(e.target.value),
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -43,7 +48,7 @@ const App: React.FC = () => {
           <label htmlFor="cheese">Enter Free Premium rooms:</label>
           <input
             value={roomsNumber.premium}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="input-premium bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             name="premium"
             type="number"
             onChange={onRoomsChanged}
@@ -53,7 +58,7 @@ const App: React.FC = () => {
           <label htmlFor="cheese">Enter Free Econom rooms:</label>
           <input
             value={roomsNumber.econom}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="input-econom bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             name="econom"
             type="number"
             onChange={onRoomsChanged}
